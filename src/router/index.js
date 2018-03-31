@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from '@/Views/Main'
-import Opener from '@/Views/Pages/Opener'
+import Main from '@/views/Main'
+import Opener from '@/views/Pages/Opener'
 
 Vue.use(Router)
 

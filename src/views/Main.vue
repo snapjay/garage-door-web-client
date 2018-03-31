@@ -1,5 +1,4 @@
 <template lang="pug">
-
     md-app(md-mode="reveal")
         md-app-toolbar.md-primary
             md-button.md-icon-button(@click='menuVisible = !menuVisible')
