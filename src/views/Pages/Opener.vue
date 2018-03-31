@@ -15,7 +15,7 @@
         md-card-content
           p(v-if='alerts.length === 0') No Alerts
           md-list
-            md-list-item(v-for='alert in alerts')
+            md-list-item(v-for='alert in alerts', :key='alert')
               md-icon(v-text='alertsConts[alert].icon')
               span.md-list-item-text(v-text='alertsConts[alert].title')
     .md-layout-item
@@ -44,6 +44,7 @@
     },
     data () {
       return {
+        path: 'http://192.168.123.123',
         status: 'Unknown',
         alerts: [],
         alertsConts: {
@@ -62,7 +63,7 @@
         this.status = data.status
       }
 
-      axios.get('/api/getStatus')
+      axios.get(`${this.path}/api/getStatus`)
         .then(rsp => {
           this.status = rsp.data.status
         })
@@ -72,15 +73,15 @@
     },
     methods: {
       action: function () {
-        axios.get('/api/action')
+        axios.get(`${this.path}/api/action`)
           .catch(() => {
-            this.status = `Unable to connect`
+            this.status = 'Unable to connect'
           })
       },
       hue: function (state) {
-        axios.get(`/api/hue?state=${state}`)
+        axios.get(`${this.path}/api/hue?state=${state}`)
           .catch(() => {
-            this.hue = `Unable to connect`
+            this.status = `Unable to connect`
           })
       }
     }

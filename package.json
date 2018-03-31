@@ -8,8 +8,6 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "startserver": "node index.js",
-    "devserver": "nodemon index.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
@@ -25,12 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "node-schedule": "^1.2.5",
-    "philips-hue": "^1.2.0",
-    "socket.io": "^1.5.1",
-    "twilio": "^2.11.1"
+    "socket.io": "^1.5.1"
   },
   "devDependencies": {
     "vue": "^2.5.2",
@@ -81,7 +74,6 @@
     "karma-webpack": "^2.0.2",
     "mocha": "^3.2.0",
     "node-notifier": "^5.1.2",
-    "nodemon": "^1.13.3",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.14",

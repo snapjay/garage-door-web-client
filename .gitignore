@@ -20,3 +20,4 @@ nohup.out
 env.json
 public.angular/
 /.editorconfig
+/dist
