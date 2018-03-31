@@ -44,7 +44,7 @@
     },
     data () {
       return {
-        path: 'http://192.168.123.123',
+        path: 'http://door.snapjay.com:8080',
         status: 'Unknown',
         alerts: [],
         alertsConts: {
@@ -63,7 +63,7 @@
         this.status = data.status
       }
 
-      axios.get(`${this.path}/api/getStatus`)
+      axios.get(`${this.path}/api/status`)
         .then(rsp => {
           this.status = rsp.data.status
         })
