@@ -4,7 +4,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router/index'
-
+import config from './config'
 import VueSocketio from 'vue-socket.io'
 
 import VueMaterial from 'vue-material'
@@ -14,7 +14,7 @@ import './assets/styles.scss'
 
 Vue.config.productionTip = false
 Vue.use(VueMaterial)
-Vue.use(VueSocketio, 'http://192.168.3.130:3000')
+Vue.use(VueSocketio, config.endpoint)
 
 Vue.filter('capitalize', function (value) {
   if (!value) return ''

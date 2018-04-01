@@ -13,6 +13,7 @@
         md-card-header
           .md-title Alerts
         md-card-content
+          p(v-if='message') Message: {{ message }}
           p(v-if='alerts.length === 0') No Alerts
           md-list
             md-list-item(v-for='alert in alerts', :key='alert')
@@ -36,6 +37,7 @@
 <script>
   import axios from 'axios'
   import DoorImage from '../../components/DoorImage'
+  import config from '../../config'
 
   export default {
     name: 'Opener',
@@ -44,8 +46,9 @@
     },
     data () {
       return {
-        path: 'http://door.snapjay.com:8080',
+        path: config.endpoint,
         status: 'Unknown',
+        message: '',
         alerts: [],
         alertsConts: {
           NIGHT_WATCH: {title: 'Night Watch', icon: 'hotel'},
@@ -68,20 +71,20 @@
           this.status = rsp.data.status
         })
         .catch(() => {
-          this.status = `Unable to connect`
+          this.message = `Unable to connect`
         })
     },
     methods: {
       action: function () {
         axios.get(`${this.path}/api/action`)
           .catch(() => {
-            this.status = 'Unable to connect'
+            this.message = 'Unable to connect'
           })
       },
       hue: function (state) {
         axios.get(`${this.path}/api/hue?state=${state}`)
           .catch(() => {
-            this.status = `Unable to connect`
+            this.message = `Unable to connect`
           })
       }
     }
