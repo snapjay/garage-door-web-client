@@ -60,7 +60,7 @@
     },
     mounted () {
       this.$options.sockets.alert = (data) => {
-        this.alerts.unshift(data)
+        this.alerts.unshift(data.status)
       }
       this.$options.sockets.statusChange = (data) => {
         this.status = data.status
