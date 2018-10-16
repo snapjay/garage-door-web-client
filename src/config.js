@@ -1,3 +1,3 @@
 module.exports = {
-  endpoint: 'https://door.snapjay.com:8445'
+  endpoint: 'https://api.door.snapjay.com:8445'
 }
